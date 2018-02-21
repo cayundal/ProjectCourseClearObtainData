@@ -4,8 +4,8 @@ setwd("~/JHU/DataScience/CleanObtainData/Week4/project")
 
 #read the two data sets to objects X and Y
 
-X<-read.fwf("X_test.txt",c(2,14,rep(c(1,15),290),1,9))
-Y<-read.fwf("X_train.txt",c(2,14,rep(c(1,15),290),1,9))
+X<-read.fwf("./UCI HAR Dataset/test/X_test.txt",c(2,14,rep(c(1,15),290),1,9))
+Y<-read.fwf("./UCI HAR Dataset/train/X_train.txt",c(2,14,rep(c(1,15),290),1,9))
 
 #remove empty columns. Both data frames should have 292 columns
 
@@ -39,6 +39,8 @@ colnames(df) <- n$ActivityName[1:292]
 
 df2<-rbind(df,m)
 
+# Export df2 to txt file without row names.
 
+write.table(df2,"df2.txt",row.names = FALSE)
 
 
